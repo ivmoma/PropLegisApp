@@ -8,13 +8,19 @@
         </section>
 
         <section>
+            <script type="text/javascript">
+                function validaTipoID() {
+                    var rbtnChecked = document.getElementById("rbtnTipoID");
+                    if (rbtnChecked.val()=="Nacional")
+                }
+            </script>
             <div class="col" style="margin-top:15px;">
                 <asp:Label ID="lblID" runat="server" Text="Seleccione tipo de identificación:" Font-Bold="True"></asp:Label>
                 <asp:RequiredFieldValidator ID="rfvTipoID" runat="server" ControlToValidate="rbtnTipoID" ErrorMessage="Debe seleccionar tipo de ID"></asp:RequiredFieldValidator>
                 <br />
                 <br />
                 <asp:RadioButtonList ID="rbtnTipoID" runat="server" RepeatDirection="Horizontal" OnSelectedIndexChanged="rbtnTipoID_SelectedIndexChanged">
-                    <asp:ListItem>Nacional</asp:ListItem>
+                    <asp:ListItem Selected="True">Nacional</asp:ListItem>
                     <asp:ListItem>Residente</asp:ListItem>
                 </asp:RadioButtonList>
                 <br />

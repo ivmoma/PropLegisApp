@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
 using System.Xml;
+using System.IO;
 
 namespace PropLegisApp
 {
@@ -23,6 +24,15 @@ namespace PropLegisApp
 
         protected void on_dllProvincia_Changed(object sender, EventArgs e)
         {
+            // verifica tipo de identificacion
+            if (rbtnTipoID.SelectedValue.ToString() == "Nacional")
+            {
+
+            }
+            if (rbtnTipoID.SelectedValue.ToString() == "Residente")
+            {
+
+            }
             if (ddlProvincia.SelectedItem.Text == "Seleccione")
             {
                 ddlCanton.Items.Clear();
@@ -144,7 +154,16 @@ namespace PropLegisApp
         protected void OnClick(object sender, EventArgs e)
         {
             // ruta absoluta archivo registro xml
-            string archivo = "C:\\Users\\immon\\Documents\\XML\\registro.xml";
+            // string archivo = "C:\\Users\\immon\\Documents\\XML\\registro.xml";
+            string ruta = @"C:\ReporteXML\";
+
+            // determina si ruta no existe
+            // crea directorio almacenamiento de reporte.xml
+            if (!Directory.Exists(ruta))
+            {
+                Directory.CreateDirectory(ruta);
+            }
+            string archivo = Path.Combine(ruta, "registro.xml");
 
             // obtiene valores desde formulario
             String tipoID = rbtnTipoID.Text;
@@ -209,6 +228,7 @@ namespace PropLegisApp
             txtEmail.Text = string.Empty;
             txtPropuesta.Text = string.Empty;
             ddlProvincia.SelectedIndex = 0;
+            ddlCanton.SelectedIndex = 0;
         }
     }
 }
