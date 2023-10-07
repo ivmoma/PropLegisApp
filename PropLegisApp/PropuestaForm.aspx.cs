@@ -24,15 +24,6 @@ namespace PropLegisApp
 
         protected void on_dllProvincia_Changed(object sender, EventArgs e)
         {
-            // verifica tipo de identificacion
-            if (rbtnTipoID.SelectedValue.ToString() == "Nacional")
-            {
-
-            }
-            if (rbtnTipoID.SelectedValue.ToString() == "Residente")
-            {
-
-            }
             if (ddlProvincia.SelectedItem.Text == "Seleccione")
             {
                 ddlCanton.Items.Clear();
@@ -154,7 +145,6 @@ namespace PropLegisApp
         protected void OnClick(object sender, EventArgs e)
         {
             // ruta absoluta archivo registro xml
-            // string archivo = "C:\\Users\\immon\\Documents\\XML\\registro.xml";
             string ruta = @"C:\ReporteXML\";
 
             // determina si ruta no existe
@@ -182,7 +172,7 @@ namespace PropLegisApp
                 using (XmlWriter xmlWriter = XmlWriter.Create(archivo, xmlWrSettings))
                 {
                     xmlWriter.WriteStartDocument();
-                    xmlWriter.WriteStartElement("Propuestas");     // FIX ME!!! -> verificar elemento
+                    xmlWriter.WriteStartElement("Propuestas");
 
                     xmlWriter.WriteStartElement("Usuario");
                     xmlWriter.WriteElementString("TipoID", tipoID);
