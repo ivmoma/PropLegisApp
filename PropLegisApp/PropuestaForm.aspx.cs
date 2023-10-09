@@ -24,6 +24,7 @@ namespace PropLegisApp
 
         protected void on_dllProvincia_Changed(object sender, EventArgs e)
         {
+            // Establece los valores en dropdownlist para Provincias y Cantones
             if (ddlProvincia.SelectedItem.Text == "Seleccione")
             {
                 ddlCanton.Items.Clear();
@@ -166,6 +167,7 @@ namespace PropLegisApp
 
             if (!System.IO.File.Exists(archivo))
             {
+                // Crea registro XML
                 XmlWriterSettings xmlWrSettings = new XmlWriterSettings();
                 xmlWrSettings.Indent = true;                    // escribe elementos individuales en lineas nuevas e indenta
                 xmlWrSettings.NewLineOnAttributes = true;       // antepone a cada atributo nueva linea y un nivel adicional de sangria
@@ -192,6 +194,7 @@ namespace PropLegisApp
             }
             else
             {
+                // Agrega campos en registro XML
                 XDocument xmlDoc = XDocument.Load(archivo);
                 XElement raiz = xmlDoc.Element("Propuestas");
                 IEnumerable<XElement> filas = raiz.Descendants("Usuario");
@@ -206,7 +209,9 @@ namespace PropLegisApp
                     new XElement("Correo", email),
                     new XElement("Propuesta", propuesta));
 
+                // salva registro
                 xmlDoc.Save(archivo);
+                // llamada a script JavaScript para mostrar alerta en mostrador
                 ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString(),
                     "JSAlertaMsg();", true);
 
