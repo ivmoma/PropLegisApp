@@ -190,6 +190,9 @@ namespace PropLegisApp
                     xmlWriter.WriteEndDocument();
                     xmlWriter.Flush();
                     xmlWriter.Close();
+                    // llamada a script JavaScript para mostrar alerta en mostrador
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString(),
+                        "JSAlertaMsg();", true);
                 }
             }
             else
