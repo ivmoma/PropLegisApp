@@ -2,6 +2,13 @@
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="MainContent">
     <main>
+
+        <script type="text/javascript">
+            function JSAlertaMsg() {
+                alert("Registro guardado satisfactoriamente")
+            }
+        </script>
+
         <section class="row">
             <h1>Registro de Propuestas Legislativas</h1>
             <p class="lead">Digite su propuesta legislativa. Proporcione la información requerida en los siguientes campos.</p>

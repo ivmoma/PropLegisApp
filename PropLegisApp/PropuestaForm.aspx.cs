@@ -205,7 +205,11 @@ namespace PropLegisApp
                     new XElement("Telefono", contacto),
                     new XElement("Correo", email),
                     new XElement("Propuesta", propuesta));
+
                 xmlDoc.Save(archivo);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString(),
+                    "JSAlertaMsg();", true);
+
             }
         }
 
